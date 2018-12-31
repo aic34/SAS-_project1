@@ -1,0 +1,293 @@
+> local({pkg <- select.list(sort(.packages(all.available = TRUE)),graphics=TRUE)
++ if(nchar(pkg)) library(pkg, character.only=TRUE)})
+Warning message:
+package ‘ISLR’ was built under R version 3.2.5 
+> auto.mat<-as.matrix(Auto[,1:8])
+> x.auto<-auto.mat[,-1]
+> y.auto<-auto.mat[,1]
+> ls.str.auto<-lsfit(x.auto, y.auto)
+> ls.print(ls.str.auto)
+Residual Standard Error=3.3277
+R-Square=0.8215
+F-statistic (df=7, 384)=252.428
+p-value=0
+
+             Estimate Std.Err t-value Pr(>|t|)
+Intercept    -17.2184  4.6443 -3.7074   0.0002
+cylinders     -0.4934  0.3233 -1.5261   0.1278
+displacement   0.0199  0.0075  2.6474   0.0084
+horsepower    -0.0170  0.0138 -1.2295   0.2196
+weight        -0.0065  0.0007 -9.9288   0.0000
+acceleration   0.0806  0.0988  0.8152   0.4155
+year           0.7508  0.0510 14.7288   0.0000
+origin         1.4261  0.2781  5.1275   0.0000
+
+
+> sum(lsfit(x,y)$resid/(1-(hat(x))))
+Error in as.matrix(x) : object 'x' not found
+> sum(lsfit(x, y)$resid/(1-(hat(x))))
+Error in as.matrix(x) : object 'x' not found
+> sum(lsfit(x,y)$resid/(1-(hat(x)))
++ )
+Error in as.matrix(x) : object 'x' not found
+> sum(lsfit(x,y) $resid/(1-(hat(x)))
++ )
+Error in as.matrix(x) : object 'x' not found
+> my.hat<-edit(my.hat)
+Error in edit(my.hat) : object 'my.hat' not found
+> my.hat<-function(x)
++ )
+Error: unexpected ')' in:
+"my.hat<-function(x)
+)"
+> my.hat.me<-edit(my.hat.me)
+Error in edit(my.hat.me) : object 'my.hat.me' not found
+> my.hat.me<-function(){}
+> 
+> my.hat.me<-function(){}
+> my.hat.me<-function(){x1<-cbind(1,x)}
+> my.hat.me<-edit(my.hat.me)
+> my.hat.me<-function(){}
+> my.hat.me<-edit(my.hat.me)
+> sum(lsfit(x,y) $resid/(1-(hat(x)))
++ )
+Error in as.matrix(x) : object 'x' not found
+> sum(((diag(392)-my.hat.me(x.auto))%*%y.auto-ls.str.auto$resid)^2)
+[1] 2.603286e-21
+> my.hat.me<-edit(my.hat.me)
+Error in .External2(C_edit, name, file, title, editor) : 
+  unexpected ')' occurred on line 3
+ use a command like
+ x <- edit()
+ to recover
+> my.hat.me<-edit(my.hat.me)
+> local({pkg <- select.list(sort(.packages(all.available = TRUE)),graphics=TRUE)
++ if(nchar(pkg)) library(pkg, character.only=TRUE)})
+> setRepositories()
+> local({pkg <- select.list(sort(.packages(all.available = TRUE)),graphics=TRUE)
++ if(nchar(pkg)) library(pkg, character.only=TRUE)})
+Warning message:
+package ‘leaps’ was built under R version 3.2.5 
+> local({pkg <- select.list(sort(.packages(all.available = TRUE)),graphics=TRUE)
++ if(nchar(pkg)) library(pkg, character.only=TRUE)})
+> 
+> auto.leaps<-leaps(x.auto, y.auto)
+> auto.leaps
+$which
+      1     2     3     4     5     6     7
+1 FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+1 FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+1 FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
+1  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+1 FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
+1 FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+1 FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+2 FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE
+2 FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE
+2  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE
+2 FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE
+2 FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE
+2 FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE
+2 FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE
+2  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE
+2 FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
+2 FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
+3 FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE
+3 FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE
+3  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE
+3 FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE
+3 FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE
+3 FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE
+3 FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE
+3 FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE
+3 FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE
+3  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE
+4 FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE
+4 FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+4 FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE
+4  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE
+4 FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE
+4  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE
+4  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE
+4 FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE
+4  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE
+4 FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE
+5 FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
+5 FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE
+5  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE
+5 FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+5  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+5  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE
+5  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE
+5  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE
+5 FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
+5  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE
+6  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
+6  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE
+6 FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+6  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+6  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
+6  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
+6  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE
+7  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+
+$label
+[1] "(Intercept)" "1"           "2"           "3"           "4"          
+[6] "5"           "6"           "7"          
+
+$size
+ [1] 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 6
+[39] 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7 8
+
+$Cp
+ [1]  273.150806  368.657264  459.603846  462.312529 1038.050732 1075.837015
+ [7] 1377.522612   26.603456  171.423768  226.882379  245.585705  255.080709
+[13]  259.948646  261.521333  264.754898  290.494803  336.026436    8.659680
+[19]   27.659732   28.155709   28.305309   28.599659  148.106163  164.168833
+[25]  167.509748  168.965197  168.992102    9.271088    9.302185    9.358839
+[31]   10.646354   29.348357   29.506250   29.588685   29.618932   30.011085
+[37]   30.179666    7.127265    7.432703    9.523138   11.104119   11.233481
+[43]   11.308485   30.292023   31.035481   31.342503   31.451785    6.664509
+[49]    7.511699    8.329125   13.008884   32.291171  104.580813  222.937408
+[55]    8.000000
+
+> Cprank.auto<-(auto.leap.str$Cp-auto.leap.str$size)
+Error: object 'auto.leap.str' not found
+> CPrank.auto<-(auto.leap.str$Cp-auto.leap.str$size)
+Error: object 'auto.leap.str' not found
+> CPrank.auto<-(auto.leaps.str$Cp-auto.leaps.str$size)
+Error: object 'auto.leaps.str' not found
+> CPrank.auto<-(auto.leaps.str$Cp-auto.leap.str$size)
+Error: object 'auto.leaps.str' not found
+> CPrank.auto<-(auto.leap.str$Cp-auto.leaps.str$size)
+Error: object 'auto.leap.str' not found
+> CPrank.auto<-(auto.leap.str$Cp-auto.leap.str$size)
+Error: object 'auto.leap.str' not found
+> CPrank.auto<-(auto.leaps.str$Cp-auto.leap.str$size)
+Error: object 'auto.leaps.str' not found
+> CPrank.auto<-(auto.leap.str$Cp-auto.leap.str$size)
+Error: object 'auto.leap.str' not found
+> CPrank.auto<-(auto.leap.str$ Cp-auto.leap.str$size)
+Error: object 'auto.leap.str' not found
+> my.top10.auto<-(auto.leap.str$which[order(CPrank.auto),])[1:10,]
+Error: object 'auto.leap.str' not found
+> my.hat.me<-edit(my.hat.me)
+> CPrank.auto<-(auto.leap.str$ Cp-auto.leap.str$size)
+Error: object 'auto.leap.str' not found
+> CPrank.auto<-(auto.leap.str$Cp-auto.leap.str$size)
+Error: object 'auto.leap.str' not found
+> my.top10.auto<-(auto.leap.str$which[order(CPrank.auto),])[1:10,]
+Error: object 'auto.leap.str' not found
+> my.whatever.me<-function(){}
+> my.whatever.me<-edit(my.whatever.me)
+> my.whatever.me<-function(){}
+> my.whatever.me
+function(){}
+> my.whatever.me<-edit(my.whatever.me)
+> my.whatever.me
+function(xmat,yvec,ncheck=10,print.ls=F)
+{
+        leaps.str<-leaps(xmat,yvec)  # run the leaps program
+        z1<-leaps.str$Cp-leaps.str$size # extract Cp-p
+        o1<-order(z1) #get the ordering vector for Cp-p
+        matwhich<-(leaps.str$which[o1,])[1:ncheck,] # sort the “which” matrix in leaps by the Cp-p order
+        z2<-z1[o1][1:ncheck] # pull out the ncheck Cp-p values
+        for(i in 1:ncheck){
+                ls.str0<-regpluspress(xmat[,matwhich[i,]],yvec) # calculate the press statistic for each regression
+                if(print.ls){
+                        ls.print(ls.str0)
+                }
+                print(i)
+                print(paste("Press=",ls.str0$press))
+                parvec<-matwhich[i,]
+                npar<-sum(parvec)
+                print(paste("MPSE=",ls.str0$press/(length(yvec)-(npar+1)))) # calculate the MPSE
+                print(paste("Cp-p=",z2[i]))
+        }
+        
+}
+> press
+Error: object 'press' not found
+> leaps.str<-leaps(xmat,yvec)
+Error in NCOL(x) : object 'xmat' not found
+> leaps.str<-leaps(xmat, yvec)
+Error in NCOL(x) : object 'xmat' not found
+> i
+Error: object 'i' not found
+> leaps.str
+Error: object 'leaps.str' not found
+> my.whatever.me(xmat, yvec, ncheck=10, print.ls=F)
+Error in NCOL(x) : object 'xmat' not found
+> my.whatever.me(xmat=1,yvec=1,ncheck=10,print.ls=F)
+Error in `colnames<-`(`*tmp*`, value = "1") : 
+  attempt to set 'colnames' on an object with less than two dimensions
+> my.whatever.me(xmat=10,yvec=10,ncheck=10,print.ls=F)
+Error in `colnames<-`(`*tmp*`, value = "1") : 
+  attempt to set 'colnames' on an object with less than two dimensions
+> my.whatever.me(xmat=100,yvec=100)
+Error in `colnames<-`(`*tmp*`, value = "1") : 
+  attempt to set 'colnames' on an object with less than two dimensions
+> print(my.whatever.me)
+function(xmat,yvec,ncheck=10,print.ls=F)
+{
+        leaps.str<-leaps(xmat,yvec)  # run the leaps program
+        z1<-leaps.str$Cp-leaps.str$size # extract Cp-p
+        o1<-order(z1) #get the ordering vector for Cp-p
+        matwhich<-(leaps.str$which[o1,])[1:ncheck,] # sort the “which” matrix in leaps by the Cp-p order
+        z2<-z1[o1][1:ncheck] # pull out the ncheck Cp-p values
+        for(i in 1:ncheck){
+                ls.str0<-regpluspress(xmat[,matwhich[i,]],yvec) # calculate the press statistic for each regression
+                if(print.ls){
+                        ls.print(ls.str0)
+                }
+                print(i)
+                print(paste("Press=",ls.str0$press))
+                parvec<-matwhich[i,]
+                npar<-sum(parvec)
+                print(paste("MPSE=",ls.str0$press/(length(yvec)-(npar+1)))) # calculate the MPSE
+                print(paste("Cp-p=",z2[i]))
+        }
+        
+}
+> print(my.whatever.me<-function(){})
+function(){}
+> print(my.whatever.me)
+function(){}
+> my.whatever.me<-edit(my.whatever.me)
+Error in .External2(C_edit, name, file, title, editor) : 
+  unexpected end of input occurred on line 22
+ use a command like
+ x <- edit()
+ to recover
+> my.whatever.me<-edit(my.whatever.me)
+Error in .External2(C_edit, name, file, title, editor) : 
+  unexpected end of input occurred on line 23
+ use a command like
+ x <- edit()
+ to recover
+> my.whatever.me<-edit(my.whatever.me)
+> my.whatever.me
+function(xmat,yvec,ncheck=10,print.ls=F)
+{
+        leaps.str<-leaps(xmat,yvec)  # run the leaps program
+        z1<-leaps.str$Cp-leaps.str$size # extract Cp-p
+        o1<-order(z1) #get the ordering vector for Cp-p
+        matwhich<-(leaps.str$which[o1,])[1:ncheck,] # sort the “which” matrix in leaps by the Cp-p order
+        z2<-z1[o1][1:ncheck] # pull out the ncheck Cp-p values
+        for(i in 1:ncheck){
+                ls.str0<-regpluspress(xmat[,matwhich[i,]],yvec) # calculate the press statistic for each regression
+                if(print.ls){
+                        ls.print(ls.str0)
+                }
+                print(i)
+                print(paste("Press=",ls.str0$press))
+                parvec<-matwhich[i,]
+                npar<-sum(parvec)
+                print(paste("MPSE=",ls.str0$press/(length(yvec)-(npar+1)))) # calculate the MPSE
+                print(paste("Cp-p=",z2[i]))
+        }
+        
+}
+> plot(my.whatever.me)
+Error in `colnames<-`(`*tmp*`, value = "1") : 
+  attempt to set 'colnames' on an ob
